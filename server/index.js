@@ -32,6 +32,8 @@ app.use("/api/v1/startup", startupRoute)
 
 
 const PORT = process.env.port || 4000
+
+// Listening the server under given port and once the server starts listening we can ready to connect server
 httpServer.listen(PORT, () => {
     console.log(`Server listening at port - ${PORT}`)
 })

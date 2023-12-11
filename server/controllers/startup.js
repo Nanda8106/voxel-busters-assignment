@@ -1,6 +1,12 @@
 import fs from "fs"
 import csvParser from "csv-parser";
 
+
+/**
+ * To fetch startups data
+ * Based on client industry type it will return response
+ * We are keeping limits for data transferring to perform high
+ */
 export const getStartupData = async (req, res) => {
     try {
 
