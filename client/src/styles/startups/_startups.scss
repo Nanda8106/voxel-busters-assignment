@@ -1,0 +1,33 @@
+.startup-data-wrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.loading-startup-wrapper{
+    width: 100%;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.see-more{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    .see-more-button{
+        outline: none;
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 800;
+        font-family: 'comfortaa';
+    }
+}
+
+@import "./filters";
+@import "./each_startup";

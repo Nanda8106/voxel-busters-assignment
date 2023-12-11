@@ -1,0 +1,26 @@
+.filter-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1rem;
+
+    .search-wrapper{
+        display: flex;
+        align-items: center;
+        .search-button{
+            width: 1rem;
+            height: 1rem;
+            background-color: rgb(0, 0, 0);
+            border-radius: 0 0.4rem 0.4rem 0;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            cursor: pointer;
+            svg{
+                color: white;
+            }  
+        }
+    }
+}
