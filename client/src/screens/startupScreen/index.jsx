@@ -13,10 +13,15 @@ const Startups = () => {
     const [page, setPage] = useState(1);
     const [currentStartup, setCurrentStartup] = useState("");
     const [loading, setLoading] = useState(false);
+    const [nextDataLoading, setNextDataLoading] = useState(false)
     const [currentIndustryType, setCurrentIndustryType] = useState("all");
 
     const fetchStartupDataHandler = (industry, page) => {
-        // setLoading(true)
+        if(page === 1){
+            setLoading(true)
+        }else{
+            setNextDataLoading(true)
+        }
         getStartupsData({ currentIndustryType: industry, page, limit: 20 })
             .then((res) => {
                 if (page !== 1) {
@@ -26,6 +31,7 @@ const Startups = () => {
                 }
             }).finally(() => {
                 setLoading(false)
+                setNextDataLoading(false)
             })
     }
 
@@ -58,6 +64,7 @@ const Startups = () => {
                     {loading ? <div className='loading-wrapper'><CircularProgress size={25} /></div> :
                         <>
                             <StartupData setOpenModal={setOpenModal} startupData={startupData} setCurrentStartup={setCurrentStartup} />
+                            {nextDataLoading && <div className='next-data-loading-wrapper'><CircularProgress size={25} /></div>}
                             {(startupData?.length / page) === 20 && (
 
                                 <div className="see-more">
