@@ -10,9 +10,8 @@ const Modal = ({ currentStartup, setOpenModal }) => {
   // fetching particular startup details
   const fetchCurrentStartupInfoHandler = () => {
     setLoading(true)
-    getStartupFullInfo({ startupName: currentStartup })
+    getStartupFullInfo({ startupNo: currentStartup })
       .then((res) => {
-        console.log(res)
         setCurrentStartupFullInfo(res?.data?.startupDetails)
       }).catch((err) => {
         alert(err?.data?.message)
@@ -23,7 +22,8 @@ const Modal = ({ currentStartup, setOpenModal }) => {
   }
 
   useEffect(() => {
-    fetchCurrentStartupInfoHandler()
+    
+      fetchCurrentStartupInfoHandler()
   }, [])
   return (
     <div className='startup-info-modal'>
@@ -40,6 +40,10 @@ const Modal = ({ currentStartup, setOpenModal }) => {
             </div>
 
             <div className="startup-personal-info">
+              <div className="each-info">
+                <span className="info-header">Founded</span>
+                <span className="info-result">:&nbsp;&nbsp;{currentStartupFullInfo?.Date ? currentStartupFullInfo?.Date : "---"} </span>
+              </div>
               <div className="each-info">
                 <span className="info-header">Industry</span>
                 <span className="info-result">:&nbsp;&nbsp;{currentStartupFullInfo?.IndustryVertical ? currentStartupFullInfo?.IndustryVertical : "---"} </span>
@@ -58,7 +62,7 @@ const Modal = ({ currentStartup, setOpenModal }) => {
               </div>
               <div className="each-info">
                 <span className="info-header">Amount</span>
-                <span className="info-result">:&nbsp;&nbsp; {currentStartupFullInfo?.AmountInUSD ? `$${currentStartupFullInfo?.AmountInUSD}`: "---"} </span>
+                <span className="info-result">:&nbsp;&nbsp; {currentStartupFullInfo?.AmountInUSD ? `$${currentStartupFullInfo?.AmountInUSD}` : "---"} </span>
               </div>
 
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const EachStartupInfo = ({ eachStartup, setOpenModal, setCurrentStartup }) => {
     return (
-        <div onClick={() => {setOpenModal(true); setCurrentStartup(eachStartup?.StartupName)}} className='each-startup'>
+        <div onClick={() => {setOpenModal(true); setCurrentStartup(eachStartup?.SNo)}} className='each-startup'>
             <span className="startup-name">{eachStartup?.StartupName}</span>
             <div className="startup-info">
                 <div className="location-founded">

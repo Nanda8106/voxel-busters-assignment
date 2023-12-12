@@ -12,7 +12,7 @@ const Startups = () => {
     const [industryTypes, setIndustryTypes] = useState([]);
     const [page, setPage] = useState(1);
     const [currentStartup, setCurrentStartup] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [nextDataLoading, setNextDataLoading] = useState(false)
     const [currentIndustryType, setCurrentIndustryType] = useState("all");
 
@@ -75,7 +75,7 @@ const Startups = () => {
                     }
                 </div>
             </div>
-            {openModal && (
+            {openModal && currentStartup && (
 
                 <div className="modal-wrapper">
                     <Modal currentStartup={currentStartup} setOpenModal={setOpenModal} />

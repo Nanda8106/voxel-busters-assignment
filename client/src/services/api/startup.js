@@ -13,8 +13,8 @@ export const getStartupsData = async ({currentIndustryType, page, limit}) => {
         });
 };
 
-export const getStartupFullInfo = async ({startupName}) => {
-    let url = `/startup/details/${startupName}`;
+export const getStartupFullInfo = async ({startupNo}) => {
+    let url = `/startup/details/${startupNo}`;
     return await httpGET(url)
         .then((res) => {
             return Promise.resolve(res);

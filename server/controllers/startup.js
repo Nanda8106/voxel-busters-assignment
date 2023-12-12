@@ -9,8 +9,8 @@ import csvParser from "csv-parser";
  */
 export const getStartupData = async (req, res) => {
     try {
-
         const { industryType, page, limit } = req?.params
+
 
         const startIndex = (page - 1) * limit;
         const endIndex = page * limit;
@@ -71,10 +71,9 @@ export const getIndustryTypes = async (req, res) => {
  */
 export const getStartupFullDetails = async (req, res) => {
     try {
-        const { startupName } = req?.params
-
-        if (!startupName) {
-            return res.status(400).json({ message: "Internal Server Error. Startup name is undefined." })
+        const { startupNo } = req?.params
+        if (!startupNo) {
+            return res.status(400).json({ message: "Internal Server Error. Startup number is undefined." })
         }
 
         const filePath = './data/startup_funding.csv';
@@ -82,7 +81,7 @@ export const getStartupFullDetails = async (req, res) => {
         fs.createReadStream(filePath)
             .pipe(csvParser())
             .on('data', (row) => {
-                if (row.StartupName && row.StartupName.toLowerCase() === startupName.toLowerCase()) {
+                if (row.SNo && row.SNo === startupNo) {
                     // Stop reading the file once a match is found
                     startupDetails = row
                 }
